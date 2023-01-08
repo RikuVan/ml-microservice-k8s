@@ -1,0 +1,35 @@
+version: 2.1
+
+jobs:
+  build-and-lint:
+    docker:
+    # Use the same Docker base as the project
+      - image: python:3.7.3-stretch
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "requirements.txt" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run:
+          name: install dependencies
+          command: |
+            make setup
+            make install
+      - save_cache:
+          paths:
+            - ~/.ml-project
+          key: v1-dependencies-{{ checksum "requirements.txt" }}
+      - run:
+          name: run lint
+          command: make lint
+
+workflows:
+  default:
+    jobs:
+      - build-and-lint

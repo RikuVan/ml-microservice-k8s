@@ -7,13 +7,22 @@
 
 setup:
 	# Create python virtualenv & source it
-	# source ~/.devops/bin/activate
-	python3 -m venv ~/.devops
+	# source ~/.ml-project/bin/activate
+	python3 -m venv ~/.ml-project
+	~/.devops/bin/activate
 
 install:
 	# This should be run from inside a virtualenv
 	pip install --no-cache-dir --upgrade setuptools wheel --use-pep517 pip &&\
     pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt
+
+validate-circleci-config:
+	# See https://circleci.com/docs/2.0/local-cli/#processing-a-config
+	circleci config process .circleci/config.yml
+
+run-circleci-local:
+	# See https://circleci.com/docs/2.0/local-cli/#running-a-job
+	circleci local execute
 
 test:
 	# Additional, optional, tests could go here
