@@ -29,7 +29,9 @@ jobs:
           key: v1-dependencies-{{ checksum "requirements.txt" }}
       - run:
           name: run lint
-          command: make lint
+          command: |
+            . venv/bin/activate
+            make lint
 
 workflows:
   default:
