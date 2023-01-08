@@ -9,7 +9,7 @@ setup:
 	# Create python virtualenv & source it
 	# source ~/.ml-project/bin/activate
 	python3 -m venv ~/.ml-project
-	~/.devops/bin/activate
+	~/.ml-project/bin/activate
 
 install:
 	# This should be run from inside a virtualenv
