@@ -1,4 +1,4 @@
-<include a CircleCI status badge, here>
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/RikuVan/ml-microservice-k8s/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/RikuVan/ml-microservice-k8s/tree/main)
 
 ## Project Overview
 
@@ -60,7 +60,7 @@ There should also be two output text files: docker_out.txt and kubernetes_out.tx
 
 NOTE: Before submitting a link to your complete, project repository, make sure you have included all required and complete files (including run_kubernetes.sh, run_docker.sh, docker_out.txt, kubernetes_out.txt, and a .circleci build directory).
 
-- [ ] .circleci folder is included
+- [x] .circleci folder is included
 
 A .circleci folder is included in the Github repository. The directory holds a config.yml that checks the project code for errors. Your project should pass, as indicated by a CircleCI status badge in the repository README.
 
@@ -74,7 +74,7 @@ Add an additional logging statement to app.py that prints as “info” the outp
 
 The README file includes a summary of the project, how to run the Python scripts and web app, and an explanation of the files in the repository.
 
-- [ ] The project passes linting via a Makefile
+- [x] The project passes linting via a Makefile
 
 Both the Dockerfile and the python file pass linting using pylint and hadolint. This may involve selectively customizing lint overrides in both tools. The lint should be run for both tools via the command make lint. Circleci build server validates step.
 
@@ -84,7 +84,7 @@ Both the Dockerfile and the python file pass linting using pylint and hadolint. 
 
 The Dockerfile should create a working directory, install the necessary dependencies, expose port 80, and specify that app.py run at container launch.
 
- - [ ] Dockerfile passes linting via a Makefile
+ - [x] Dockerfile passes linting via a Makefile
 
 The Dockerfile should pass make lint without errors. Circleci build server validates step.
 
