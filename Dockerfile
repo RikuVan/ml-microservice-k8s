@@ -19,7 +19,8 @@ RUN pip install --no-cache-dir --upgrade setuptools wheel --use-pep517 pip &&\
 # Expose port 80
 EXPOSE 80
 
-RUN mkdir logs
+# Need if pipe the logs to a file and map to volume
+# RUN mkdir logs
 
 ## Step 5:
 # Run app.py at container launch

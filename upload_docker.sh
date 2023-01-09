@@ -10,7 +10,7 @@ dockerpath=rikuvan/ml-project
 # Step 2:  
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
-docker image tag $dockerpath "${dockerpath}:latest"
+docker image tag $dockerpath $dockerpath
 
 # Step 3:
 # Push image to a docker repository

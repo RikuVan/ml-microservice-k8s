@@ -1,13 +1,15 @@
 from flask import Flask, request, jsonify
 from flask.logging import create_logger
-import logging
+# import logging
 
 import pandas as pd
 from sklearn.externals import joblib
 from sklearn.preprocessing import StandardScaler
 
-logging.basicConfig(filename='logs/out.log', level=logging.INFO,
-                    format='[%(asctime)s %(levelname)s] %(message)s')
+# Uncomment to log straight to a file
+# Dockerfile must also have logs dir
+# logging.basicConfig(filename='logs/out.log', level=logging.INFO,
+#                     format='[%(asctime)s %(levelname)s] %(message)s')
 app = Flask(__name__)
 LOG = create_logger(app)
 

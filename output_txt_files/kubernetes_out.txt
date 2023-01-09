@@ -1,1 +1,41 @@
-<paste log output from Kubernetes-mediated prediction, here>
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 695-201-446
+[2023-01-09 14:22:39,734] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2023-01-09 14:22:39,744] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-01-09 14:22:39,751] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-01-09 14:22:39,754] INFO in app: Prediction:
+{'prediction': [20.35373177134412]}
+127.0.0.1 - - [09/Jan/2023 14:22:39] "POST /predict HTTP/1.1" 200 -
+
+## Output of ./run_kubernetes
+
+deployment.apps/ml-project created
+Waiting for container to be created
+NAME                         READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/ml-project   1/1     1            1           21s
+
+NAME                                   DESIRED   CURRENT   READY   AGE
+replicaset.apps/ml-project-b8b9db99f   1         1         1       21s
+
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+service/kubernetes   ClusterIP   10.100.0.1   <none>        443/TCP   6h39m
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/ml-project-b8b9db99f-cs56q   1/1     Running   0          21s
+Pod is ml-project-b8b9db99f-cs56q
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+
