@@ -1,1 +1,16 @@
-<paste log output from Docker prediction, here>
+[2023-01-09 07:18:20,671 INFO]  * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+[2023-01-09 07:18:20,673 INFO]  * Restarting with stat
+[2023-01-09 07:18:21,213 WARNING]  * Debugger is active!
+[2023-01-09 07:18:21,218 INFO]  * Debugger PIN: 260-173-522
+[2023-01-09 07:21:05,573 INFO] 172.17.0.1 - - [09/Jan/2023 07:21:05] "GET / HTTP/1.1" 200 -
+[2023-01-09 07:21:32,810 INFO] JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2023-01-09 07:21:32,838 INFO] Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-01-09 07:21:32,845 INFO] Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-01-09 07:21:32,851 INFO] Output prediction: 
+{'prediction': [20.35373177134412]}
+[2023-01-09 07:21:32,853 INFO] 172.17.0.1 - - [09/Jan/2023 07:21:32] "POST /predict HTTP/1.1" 200 -

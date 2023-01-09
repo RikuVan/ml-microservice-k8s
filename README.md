@@ -88,7 +88,7 @@ The Dockerfile should create a working directory, install the necessary dependen
 
 The Dockerfile should pass make lint without errors. Circleci build server validates step.
 
- - [ ] Log output is saved in docker_out.txt
+ - [x] Log output is saved in docker_out.txt
 
 While running the docker container, call the prediction script, make_predictions.sh; the log output, which includes the output prediction value, should be included in your submission as a text file, docker_out.txt.
 

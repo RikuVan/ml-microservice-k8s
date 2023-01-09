@@ -6,9 +6,10 @@ import pandas as pd
 from sklearn.externals import joblib
 from sklearn.preprocessing import StandardScaler
 
+logging.basicConfig(filename='logs/out.log', level=logging.INFO,
+                    format='[%(asctime)s %(levelname)s] %(message)s')
 app = Flask(__name__)
 LOG = create_logger(app)
-LOG.setLevel(logging.INFO)
 
 
 def scale(payload):

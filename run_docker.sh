@@ -2,6 +2,7 @@
 
 IMAGE_NAME=rikuvan/ml-project
 HOST_PORT=8000
+TARGET="${1:-$HOME/tmp}"
 
 # Step 1:
 # Build image and add a descriptive tag
@@ -14,5 +15,6 @@ docker images
 
 # Step 3: 
 # Run flask app
-docker run --name "${IMAGE_NAME}-container" -p "${HOST_PORT}:80" $IMAGE_NAME
+docker run --name ml-project-container -p "${HOST_PORT}:80" -v $TARGET:/app/logs $IMAGE_NAME
 echo "app 🏃 on ${HOST_PORT}"
+echo "logs written to ${TARGET}"

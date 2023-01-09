@@ -1,4 +1,4 @@
-FROM python:3.7.3
+FROM python:3.7.3-stretch
 
 ## Step 1:
 # Create a working directory
@@ -18,6 +18,8 @@ RUN pip install --no-cache-dir --upgrade setuptools wheel --use-pep517 pip &&\
 ## Step 4:
 # Expose port 80
 EXPOSE 80
+
+RUN mkdir logs
 
 ## Step 5:
 # Run app.py at container launch
